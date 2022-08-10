@@ -112,6 +112,43 @@ install tailwind dependancys for react
 
 - npm install @headlessui/react @heroicons/react
 
+if using typescript be sure to edit your tsconfig.json
+
+ - remove the line 
+    - "strict": true,
+ + in the space created add the following (within tsconfig.json) 
+  +"noImplicitAny": false,
+
+ tsconfig.json should now look like this (8/10/2022):
+
+
+  {
+  "exclude": ["./cypress", "./cypress.config.ts"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2019"],
+    "types": ["vitest/globals"],
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "target": "ES2019",
+    "noImplicitAny": false,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./app/*"]
+    },
+    "skipLibCheck": true,
+
+    // Remix takes care of building everything in `remix build`.
+    "noEmit": true
+  }
+
+
 - Initialize Git.
 
   ```sh

@@ -184,9 +184,15 @@ if using typescript be sure to edit your tsconfig.json
 
   ```sh
   fly postgres create --name splinterlands-3cb9-db
+
+ !!!! be sure to write down your database password as you will need this if you plan to connect to your data on your local machine
+
   fly postgres attach --postgres-app splinterlands-3cb9-db --app splinterlands-3cb9
 
   fly postgres create --name splinterlands-3cb9-staging-db
+
+   !!!! be sure to write down your database password as you will need this if you plan to connect to your data on your local machine  
+   
   fly postgres attach --postgres-app splinterlands-3cb9-staging-db --app splinterlands-3cb9-staging
   ```
 
